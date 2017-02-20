@@ -1,28 +1,28 @@
 print 'Give me number of lines: '
-n = gets.to_i # 10
-array = [5, 6, 10, 15]
-array[0] # 5
-array[1] # 6
-array[2] # 10
-array[3] # 15
+n = gets.to_i
 
-for i in 1..n
+array = []
+
+(1..n).to_a.each do |i|
   if i == 1
     array = [1]
   elsif i == 2
     array = [1, 1]
-  else # i = j ( j - 2 elements)
-    new_array = [1]
-    for k in 1..(i - 2)
+  else
+    new_array = []
+
+    new_array << 1
+    (1..(i - 2)).to_a.each do |k|
       new_array << array[k - 1] + array[k]
     end
     new_array << 1
+
     array = new_array
   end
 
-  for element in array
+  array.each do |element|
     print "#{element} "
   end
 
-  puts ""
+  puts ''
 end
